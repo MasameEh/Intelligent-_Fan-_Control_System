@@ -65,6 +65,37 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set channel_AN0 aliases
+#define channel_AN0_TRIS                 TRISAbits.TRISA0
+#define channel_AN0_LAT                  LATAbits.LATA0
+#define channel_AN0_PORT                 PORTAbits.RA0
+#define channel_AN0_ANS                  ANSELbits.ANS0
+#define channel_AN0_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
+#define channel_AN0_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
+#define channel_AN0_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define channel_AN0_GetValue()           PORTAbits.RA0
+#define channel_AN0_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
+#define channel_AN0_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
+#define channel_AN0_SetAnalogMode()      do { ANSELbits.ANS0 = 1; } while(0)
+#define channel_AN0_SetDigitalMode()     do { ANSELbits.ANS0 = 0; } while(0)
+
+// get/set LED aliases
+#define LED_TRIS                 TRISBbits.TRISB0
+#define LED_LAT                  LATBbits.LATB0
+#define LED_PORT                 PORTBbits.RB0
+#define LED_WPU                  WPUBbits.WPUB0
+#define LED_ANS                  ANSELHbits.ANS12
+#define LED_SetHigh()            do { LATBbits.LATB0 = 1; } while(0)
+#define LED_SetLow()             do { LATBbits.LATB0 = 0; } while(0)
+#define LED_Toggle()             do { LATBbits.LATB0 = ~LATBbits.LATB0; } while(0)
+#define LED_GetValue()           PORTBbits.RB0
+#define LED_SetDigitalInput()    do { TRISBbits.TRISB0 = 1; } while(0)
+#define LED_SetDigitalOutput()   do { TRISBbits.TRISB0 = 0; } while(0)
+#define LED_SetPullup()          do { WPUBbits.WPUB0 = 1; } while(0)
+#define LED_ResetPullup()        do { WPUBbits.WPUB0 = 0; } while(0)
+#define LED_SetAnalogMode()      do { ANSELHbits.ANS12 = 1; } while(0)
+#define LED_SetDigitalMode()     do { ANSELHbits.ANS12 = 0; } while(0)
+
 // get/set RC3 procedures
 #define RC3_SetHigh()            do { LATCbits.LATC3 = 1; } while(0)
 #define RC3_SetLow()             do { LATCbits.LATC3 = 0; } while(0)

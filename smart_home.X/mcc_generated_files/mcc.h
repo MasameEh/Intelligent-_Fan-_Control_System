@@ -54,12 +54,15 @@
 #include <conio.h>
 #include "interrupt_manager.h"
 #include "i2c_master.h"
+#include "adc.h"
 #include "eusart.h"
 #include "../RealTimeClock_DS1307/RealTimeClock.h"
 #include "../UART_LoggingDebugData/UART_LoggingDebugData.h"
 #include "../EEPROM_24C02C/EEPROM_24C02C.h"
 #include "../TempSensor_TC74/TempSensor_TC74.h"
 
+
+#define ADC_STEP (5.0/1024.0)
 
 /**
  * @Param

@@ -68,7 +68,7 @@ void PIN_MANAGER_Initialize(void)
     */
     TRISE = 0x07;
     TRISA = 0xFF;
-    TRISB = 0xFF;
+    TRISB = 0xFE;
     TRISC = 0xBF;
     TRISD = 0xFF;
 
