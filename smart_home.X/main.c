@@ -1,0 +1,54 @@
+/* 
+ * File:   main.c
+ * Author: Mohamed Sameh
+ * Description:
+ * Source file for Smart Home application.
+ * Created on October 18, 2023, 3:05 AM
+ */
+
+#include "mcc_generated_files/mcc.h"
+
+
+realtimeclock_t realtimeclock;
+uint8_t U4_EEPROM;
+uint8_t U3_EEPROM;
+uint8_t A7_TC74_Value;
+
+void main(void)
+{
+    // Initialize the device
+    SYSTEM_Initialize();
+    
+    // Enable the Global Interrupts
+    INTERRUPT_GlobalInterruptEnable();
+
+    // Disable the Global Interrupts
+    //INTERRUPT_GlobalInterruptDisable();
+
+    // Enable the Peripheral Interrupts
+    INTERRUPT_PeripheralInterruptEnable();
+
+    // Disable the Peripheral Interrupts
+    //INTERRUPT_PeripheralInterruptDisable();
+    EEPROM_24C02C_WriteByte(0xA2, 0x09, 0x01);
+    EEPROM_24C02C_WriteByte(0xA6, 0x09, 0x01);
+    __delay_us(100);
+   
+    U4_EEPROM = EEPROM_24C02C_ReadByte(0xA2, 0x09);
+    U3_EEPROM = EEPROM_24C02C_ReadByte(0xA6, 0x09);
+
+    while(1)
+    {
+        //Display the date and time
+        realtimeclock = RealTimeClock_Get_Time_Data();
+        RealTimeClockPrint();
+        //Read the Sensor temperature
+        A7_TC74_Value = TempSensor_TC74_ReadByte(0x9A);
+        //Send the Sensor reading to another MCU
+        I2C_Write1ByteRegister(0x60, 0x00, A7_TC74_Value);
+        __delay_ms(100);
+    }
+}
+/**
+ End of File
+*/
