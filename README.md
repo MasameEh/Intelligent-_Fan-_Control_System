@@ -68,7 +68,7 @@ This project aims to create an Intelligent Fan Control System using the I2C comm
 5. LDR turns on LEDs at night.
 
 ## Circuit Diagram
-
+![Circuit_digram](https://github.com/MasameEh/Intelligent-_Fan-_Control_System/assets/92492113/8e046083-bb17-4165-926a-669b2fa0af02)
 
 
 ## Dependencies
