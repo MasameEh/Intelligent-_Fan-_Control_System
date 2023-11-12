@@ -69,7 +69,7 @@ This project aims to create an Intelligent Fan Control System using the I2C comm
 
 ## Circuit Diagram
 
-Insert circuit diagram here.
+
 
 ## Dependencies
 
@@ -78,12 +78,3 @@ Insert circuit diagram here.
 - TC74 library.
 - EEPROM library.
 - DS1307 library.
-
-## Contributors
-
-Project developed by [Your Name].
-
-## License
-
-This project is open-source under [License]. See LICENSE.md for details.
-
